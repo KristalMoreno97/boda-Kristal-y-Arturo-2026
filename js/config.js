@@ -16,9 +16,10 @@ const CONFIG = {
   recepcion: { lugar: "Jardín Lucrecia",  direccion: "Av. Lucrecia Ruiz de Ayón #49, Col. Villa de Cortés / San Luis Rey, Hermosillo, Son. (a un lado de Oky Doky).", hora: "9:00 pm", mapa: "" },
   itinerario: [                           // el orden del día: agrega, quita o cambia lo que quieras
     { hora: "8:00",  ampm: "P.M.", titulo: "El sí",      texto: "La ceremonia en la Parroquia Santa Eduwiges. Los esperamos con el corazón listo." },
-    { hora: "9:00",  ampm: "P.M.", titulo: "El brindis", texto: "Nos vemos en el Jardín Lucrecia para brindar juntos." },
+    { hora: "9:00",  ampm: "P.M.", titulo: "El sí del civil", texto: "Nos vemos en el Jardín Lucrecia para la firma definitiva." },
+    { hora: "9:30",  ampm: "P.M.", titulo: "El brindis", texto: "Los esperamos para brindar juntos." },
     { hora: "10:00", ampm: "P.M.", titulo: "La cena",    texto: "Comer rico, conversar largo y disfrutar la mesa." },
-    { hora: "11:30", ampm: "P.M.", titulo: "La fiesta",  texto: "Bailar es requisito." }
+    { hora: "10:30", ampm: "P.M.", titulo: "La fiesta",  texto: "Bailar es requisito." }
   ],
   vestimenta: "Formal elegante",          // el título grande
   vestimentaEllos: "Vestimenta semi formal o formal (No mezclilla)",
