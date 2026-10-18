@@ -187,10 +187,15 @@
           </label>
         </div>
 
-        <div id="rsvpPersonasBox">
-          <label class="rsvp-label" for="rsvpPersonas">¿Cuántos serán en total? (contándote a ti)</label>
-          <input class="rsvp-input" id="rsvpPersonas" type="number" min="1" max="20" value="1" inputmode="numeric" required>
-        </div>
+  <div id="rsvpPersonasBox">
+    <label class="rsvp-label" for="rsvpPersonas">¿Cuántos serán en total? (contándote a ti)</label>
+    <input class="rsvp-input" id="rsvpPersonas" type="number" min="1" max="20" value="1" inputmode="numeric">
+
+    <div id="rsvpAcompBox" style="display:none">
+      <label class="rsvp-label" for="rsvpAcomp">Nombres de tus acompañantes (opcional)</label>
+      <textarea class="rsvp-input" id="rsvpAcomp" rows="2" placeholder="Ej. Ana López, Luis (hijo). Si vienen en familia, puedes dejarlo vacío."></textarea>
+    </div>
+</div>
 
         <label class="rsvp-label" for="rsvpMensaje">Un mensaje para los novios (opcional)</label>
         <textarea class="rsvp-input" id="rsvpMensaje" rows="3" placeholder="Escribe aquí..."></textarea>

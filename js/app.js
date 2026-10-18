@@ -245,7 +245,7 @@
     const acBox = document.getElementById('rsvpAcompBox');
 
     // mostrar nombres de acompañantes si son más de 1
-    const updAcomp = () => { acBox.style.display = Number(sel.value) > 1 ? '' : 'none'; };
+   const updAcomp = () => { if (acBox) acBox.style.display = Number(sel.value) > 1 ? '' : 'none'; };
     sel.addEventListener('input', updAcomp);
     updAcomp();
 
@@ -268,7 +268,8 @@
       const nombre = document.getElementById('rsvpNombre').value.trim();
       const asiste = document.querySelector('input[name="asiste"]:checked').value;
       const n = Number(sel.value);
-      const acomp = document.getElementById('rsvpAcomp').value.trim();
+      const acompEl = document.getElementById('rsvpAcomp');
+const acomp = acompEl ? acompEl.value.trim() : '';
       const msg = document.getElementById('rsvpMensaje').value.trim();
 
       if (asiste === 'si' && (!Number.isInteger(n) || n < 1)) {
