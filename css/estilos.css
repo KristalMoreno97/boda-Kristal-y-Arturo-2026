@@ -298,3 +298,21 @@ textarea.rsvp-input{resize:vertical;min-height:80px}
 input[type=number].rsvp-input{-moz-appearance:textfield}
 input[type=number].rsvp-input::-webkit-inner-spin-button,
 input[type=number].rsvp-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+/* ---- menú ---- */
+.menu .dc-title em{color:var(--gold-d)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:6px}
+.menu-item{
+  background:var(--paper);border:1px solid rgba(194,161,90,.55);border-radius:14px;
+  padding:22px 18px;box-shadow:0 8px 22px rgba(80,75,40,.10);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.menu-fig{width:100%;max-width:150px;height:auto;filter:drop-shadow(0 8px 6px rgba(70,50,20,.2));animation:floaty 5s ease-in-out infinite alternate}
+.menu-item:nth-child(2) .menu-fig{animation-delay:-1.6s}
+.menu-item:nth-child(3) .menu-fig{animation-delay:-3.2s}
+.menu-item h3{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(30px,7vw,38px);color:var(--gold-d);line-height:1.1;margin-top:4px}
+.menu-item p{font-size:18px;line-height:1.4}
+.menu{margin-bottom:clamp(64px,10vw,100px)}
+.menu-grid{margin-bottom:0}
+.section.menu{margin-bottom:clamp(72px,12vw,120px)}
+.menu-grid{padding-bottom:70px !important}
+.dresscode{margin-top:50px !important}

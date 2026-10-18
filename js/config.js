@@ -25,11 +25,22 @@ const CONFIG = {
   vestimentaEllas: "Vestido largo o mini formal (No mezclilla ni blanco)",
   colorEllos: "#2f3b52",                  // color del traje en el dibujo
   colorEllas: "#a9b38c",                  // color del vestido en el dibujo
-  vestimentaNota: "",                     // ej. "Favor de no usar blanco" (vacío = no aparece)
+  vestimentaNota: "",    
+    menu: {
+    eyebrow: "Menú",
+    titulo1: "Para compartir",
+    titulo2: "la mesa",
+    platoTitulo: "Plato fuerte",
+    plato: "Pechuga de pollo rellena de jamón y queso, bañada en salsa de queso, con verduras cocidas y puré de papa.",
+    snackTitulo: "Snack",
+    snack: "Postres salados y dulces para seguir la noche.",
+    bebidasTitulo: "Bebidas",
+    bebidas: "Cerveza de barril y una sodita para después de tanto baile."
+  },                 // ej. "Favor de no usar blanco" (vacío = no aparece)
   regalos: {
     titulo1: "Tu presencia es",
     titulo2: "nuestro regalo",
-    texto: "Si deseas tener un detalle con nosotros, ese día también habrá un buzón para sobres. ¡Gracias por acompañarnos!",
+    texto: "Si deseas tener un detalle con nosotros, aqui tienes nuestra cuenta, ese día también habrá un buzón para sobres. ¡Gracias por acompañarnos!",
     cuenta: {
       banco: "Santander",
       titular: "Yoshelyn Kristal Moreno Almeida",

@@ -89,6 +89,16 @@
   $('dressN').textContent = C.vestimentaNota || ''; if (!C.vestimentaNota) $('dressN').style.display = 'none';
   if (C.whatsapp) $('rsvp').href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(C.whatsappMensaje);
  
+    /* ---------- menú ---------- */
+  const m = C.menu;
+  if (m) {
+    $('menuEyebrow').textContent = m.eyebrow || 'Menú';
+    $('menuT1').textContent = m.titulo1 || '';
+    $('menuT2').textContent = m.titulo2 || '';
+    $('menuPlatoT').textContent = m.platoTitulo || ''; $('menuPlato').textContent = m.plato || '';
+    $('menuSnackT').textContent = m.snackTitulo || ''; $('menuSnack').textContent = m.snack || '';
+    $('menuBebT').textContent = m.bebidasTitulo || ''; $('menuBeb').textContent = m.bebidas || '';
+  } else { $('menuBox').style.display = 'none'; }
 
   /* ---------- ramas de olivo ---------- */
   // hoja de olivo: larga y angosta, puntiaguda
