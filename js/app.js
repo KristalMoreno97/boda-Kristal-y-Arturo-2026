@@ -10,18 +10,11 @@
   $('n1').textContent = C.novia; $('n2').textContent = C.novio;
   $('dd').textContent = fecha.getDate(); $('dm').textContent = meses[fecha.getMonth()]; $('dy').textContent = fecha.getFullYear();
   $('seal').textContent = (C.iniciales || (C.novio[0] + '&' + C.novia[0])).toUpperCase();
-  $('msg').replaceChildren(
-  ...C.mensaje.map(texto => {
-    const p = document.createElement('p');
-    p.textContent = texto;
-    return p;
-  })
-);
   $('fn').textContent = C.novia + ' & ' + C.novio;
   $('fd').textContent = fecha.getDate() + ' de ' + meses[fecha.getMonth()] + ' de ' + fecha.getFullYear();
   document.title = C.novia + ' & ' + C.novio + ' · Nuestra boda';
   $('foto').src = C.foto;
-    if (C.fondo) { $('hero').style.backgroundImage = "url('" + C.fondo + "')"; $('hero').classList.add('photo-bg'); }
+  if (C.fondo) { $('hero').style.backgroundImage = "url('" + C.fondo + "')"; $('hero').classList.add('photo-bg'); }
 
   const dias = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
   const fechaLarga = dias[fecha.getDay()] + ' ' + fecha.getDate() + ' de ' + meses[fecha.getMonth()];
@@ -81,7 +74,8 @@
       });
     } else { $('giftBtn').style.display = 'none'; }
   } else { $('giftBox').style.display = 'none'; }
-    if (g && Array.isArray(g.mesas) && g.mesas.length) {
+
+  if (g && Array.isArray(g.mesas) && g.mesas.length) {
     g.mesas.forEach(m => {
       const a = document.createElement('a');
       a.className = 'btn';
@@ -92,6 +86,8 @@
       $('giftLinks').appendChild(a);
     });
   }
+
+  /* ---------- vestimenta ---------- */
   $('dress').textContent = C.vestimenta;
   $('dressEllos').textContent = C.vestimentaEllos || ''; $('dressEllas').textContent = C.vestimentaEllas || '';
   const dc = document.querySelector('.dresscode');
@@ -99,19 +95,21 @@
   if (C.colorEllas) dc.style.setProperty('--gown', C.colorEllas);
   $('dressN').textContent = C.vestimentaNota || ''; if (!C.vestimentaNota) $('dressN').style.display = 'none';
   if (C.whatsapp) $('rsvp').href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(C.whatsappMensaje);
- 
-    /* ---------- menú ---------- */
-  const m = C.menu;
-  if (m) {
-    $('menuEyebrow').textContent = m.eyebrow || 'Menú';
-    $('menuT1').textContent = m.titulo1 || '';
-    $('menuT2').textContent = m.titulo2 || '';
-    $('menuPlatoT').textContent = m.platoTitulo || ''; $('menuPlato').textContent = m.plato || '';
-    $('menuSnackT').textContent = m.snackTitulo || ''; $('menuSnack').textContent = m.snack || '';
-    $('menuBebT').textContent = m.bebidasTitulo || ''; $('menuBeb').textContent = m.bebidas || '';
-  } else { $('menuBox').style.display = 'none'; }
 
-    /* ---------- paleta de colores ---------- */
+  /* ---------- menú ---------- */
+  const mn = C.menu, menuBox = $('menuBox');
+  if (menuBox) {
+    if (mn) {
+      $('menuEyebrow').textContent = mn.eyebrow || 'Menú';
+      $('menuT1').textContent = mn.titulo1 || '';
+      $('menuT2').textContent = mn.titulo2 || '';
+      $('menuPlatoT').textContent = mn.platoTitulo || ''; $('menuPlato').textContent = mn.plato || '';
+      $('menuSnackT').textContent = mn.snackTitulo || ''; $('menuSnack').textContent = mn.snack || '';
+      $('menuBebT').textContent = mn.bebidasTitulo || ''; $('menuBeb').textContent = mn.bebidas || '';
+    } else { menuBox.style.display = 'none'; }
+  }
+
+  /* ---------- paleta de colores ---------- */
   const pl = C.paleta;
   if (pl && Array.isArray(pl.colores) && pl.colores.length) {
     $('palEyebrow').textContent = pl.eyebrow || '';
@@ -268,7 +266,7 @@
     rt = setTimeout(() => { if (Math.abs(hero.clientWidth - sceneW) > 2 || Math.abs(hero.clientHeight - sceneH) > 80) buildScene(); }, 250);
   });
 
-    /* ---- confirmación (RSVP) ---- */
+  /* ---- confirmación (RSVP) ---- */
   (function () {
     const c = CONFIG.confirmacion;
     if (!c) return;
@@ -283,7 +281,7 @@
     const acBox = document.getElementById('rsvpAcompBox');
 
     // mostrar nombres de acompañantes si son más de 1
-   const updAcomp = () => { if (acBox) acBox.style.display = Number(sel.value) > 1 ? '' : 'none'; };
+    const updAcomp = () => { if (acBox) acBox.style.display = Number(sel.value) > 1 ? '' : 'none'; };
     sel.addEventListener('input', updAcomp);
     updAcomp();
 
@@ -307,7 +305,7 @@
       const asiste = document.querySelector('input[name="asiste"]:checked').value;
       const n = Number(sel.value);
       const acompEl = document.getElementById('rsvpAcomp');
-const acomp = acompEl ? acompEl.value.trim() : '';
+      const acomp = acompEl ? acompEl.value.trim() : '';
       const msg = document.getElementById('rsvpMensaje').value.trim();
 
       if (asiste === 'si' && (!Number.isInteger(n) || n < 1)) {

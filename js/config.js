@@ -23,24 +23,24 @@ const CONFIG = {
     { hora: "10:30", ampm: "P.M.", titulo: "La fiesta",  texto: "Bailar es requisito." },
     { hora: "12:30", ampm: "P.M.", titulo: "La hora loca",  texto: "Luces arriba, carteles al aire y ¡todos a seguir bailando!." }
   ],
-  vestimenta: "Formal elegante",          // el título grande
+  vestimenta: "Elegante",          // el título grande
   vestimentaEllos: "Vestimenta semi formal o formal (No mezclilla)",
   vestimentaEllas: "Vestido largo o mini formal (No mezclilla ni blanco)",
   colorEllos: "#2f3b52",                  // color del traje en el dibujo
   colorEllas: "#a9b38c",                  // color del vestido en el dibujo
   vestimentaNota: "",    
-    menu: {
-    eyebrow: "Menú",
-    titulo1: "Para compartir",
-    titulo2: "la mesa",
-    platoTitulo: "Plato fuerte",
-    plato: "Pechuga de pollo rellena de jamón y queso, bañada en salsa de queso, con verduras cocidas y puré de papa.",
-    snackTitulo: "Snack",
-    snack: "Postres salados y dulces para seguir la noche.",
-    bebidasTitulo: "Bebidas",
-    bebidas: "Cerveza de barril y una sodita para después de tanto baile."
-  },   
-      paleta: {
+   // menu: {
+    //eyebrow: "Menú",
+    //titulo1: "Para compartir",
+    //titulo2: "la mesa",
+   // platoTitulo: "Plato fuerte",
+    //plato: "Pechuga de pollo rellena de jamón y queso, bañada en salsa de queso, con verduras cocidas y puré de papa.",
+   // snackTitulo: "Snack",
+   // snack: "Postres salados y dulces para seguir la noche.",
+    //bebidasTitulo: "Bebidas",
+    //bebidas: "Cerveza de barril y una sodita para después de tanto baile."
+  //},   
+    paleta: {
     eyebrow: "Paleta de colores",
     titulo1: "Colores",
     titulo2: "sugeridos",
