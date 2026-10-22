@@ -91,8 +91,20 @@ body:not(.unlocked){overflow:hidden;height:100svh}
 .card.open .frame path{animation:draw 2.6s ease .9s forwards}
 .names{font-family:'Great Vibes',cursive;font-size:10.4cqw;line-height:1.05;color:var(--olive);text-align:center;white-space:nowrap}
 .names i{font-style:normal;color:var(--gold-d);font-size:.75em;padding:0 .12em}
-.date{display:flex;align-items:center;gap:3cqw;font-size:4.4cqw;letter-spacing:.2em;color:var(--gold-d);font-weight:600;text-transform:lowercase}
-.date b{font-weight:600;display:inline-block;width:1px;height:1.1em;background:var(--gold);opacity:.8}
+.date{
+  display:flex;align-items:center;gap:3cqw;
+  font-size:6.4cqw;
+  letter-spacing:.12em;
+  color:var(--gold-d);
+  font-weight:700;
+  text-transform:lowercase;
+  text-shadow:.4px 0 0 currentColor,-.4px 0 0 currentColor;
+}
+.date b{width:2px;height:1.1em;background:var(--gold);opacity:1}
+.date, #cerH, #recH, #fd, .count b{
+  font-variant-numeric: lining-nums;
+  font-feature-settings:"lnum" 1;
+}
 .rv{opacity:0;transform:translateY(10px)}
 .card.open .rv{opacity:1;transform:none;transition:opacity 1.1s ease,transform 1.1s ease;transition-delay:var(--rd,1s)}
 
@@ -161,11 +173,14 @@ body:not(.unlocked){overflow:hidden;height:100svh}
 .hero.opened .hint{opacity:0;animation:none}
 @keyframes blink{0%,100%{opacity:.5}50%{opacity:1}}
 .cue{
-  position:absolute;z-index:3;bottom:max(2.5svh,14px);left:50%;transform:translateX(-50%);text-align:center;
-  font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:#f3e6c4;text-shadow:0 1px 8px rgba(0,0,0,.7);text-decoration:none;font-weight:600;
-  opacity:0;pointer-events:none;transition:opacity 1s ease
+  color:#fff;
+  font-weight:600;
+  text-shadow:0 0 6px rgba(194,161,90,.55), 0 1px 10px rgba(194,161,90,.35);
 }
-.cue span{display:block;font-size:22px;animation:bounce 1.6s infinite}
+.cue span{
+  color:#fff;
+  text-shadow:0 0 6px rgba(194,161,90,.55);
+}
 .hero.opened .cue{opacity:1;pointer-events:auto;transition-delay:2.6s}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
@@ -221,8 +236,8 @@ h2{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(40px,9vw,60
 .gl{fill:none;stroke-linecap:round}
 @keyframes swing{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
 footer{padding:36px 20px 60px;text-align:center;background:var(--olive);color:var(--cream)}
-footer .n{font-family:'Great Vibes',cursive;font-size:44px;color:var(--gold-l)}
-footer p{letter-spacing:.2em;text-transform:uppercase;font-size:13px;margin-top:6px;opacity:.9}
+footer .n{font-family:'Great Vibes',cursive;font-size:clamp(56px,15vw,76px);line-height:1.1;color:var(--gold-l)}
+footer p{letter-spacing:.2em;text-transform:uppercase;font-size:clamp(16px,4.2vw,20px);margin-top:10px;opacity:.9}
 
 @media (min-width:900px){
   .hero{padding:20px}
@@ -384,4 +399,28 @@ input[type=number].rsvp-input::-webkit-outer-spin-button{-webkit-appearance:none
   height:auto;
   border-radius:8px;
   box-shadow:0 10px 26px rgba(80,75,40,.18);
+}
+.pal{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px 10px;
+  max-width:420px;
+  margin:0 auto;
+}
+.pal-item{width:auto;min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.pal-dot{
+  width:clamp(46px,13vw,60px);
+  aspect-ratio:1;
+  border-radius:50%;
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 1px rgba(194,161,90,.65), 0 6px 10px rgba(70,50,20,.2), inset 0 -4px 8px rgba(0,0,0,.08);
+}
+.pal-name{
+  font-size:clamp(10px,2.8vw,12px);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink);
+  font-weight:600;
+  line-height:1.3;
+  text-align:center;
 }

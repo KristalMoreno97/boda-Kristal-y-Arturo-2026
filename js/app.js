@@ -20,7 +20,7 @@
   const fechaLarga = dias[fecha.getDay()] + ' ' + fecha.getDate() + ' de ' + meses[fecha.getMonth()];
   function lugar(p, o){
     $(p+'L').textContent = o.lugar;
-    $(p+'H').textContent = fechaLarga + ' · ' + o.hora;
+    $(p+'H').textContent = o.hora;
     $(p+'D').textContent = o.direccion;
     $(p+'M').href = o.mapa || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(o.lugar + ' ' + o.direccion));
   }
