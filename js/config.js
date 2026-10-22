@@ -15,7 +15,7 @@ const CONFIG = {
   ceremonia: { lugar: "Parroquia Santa Eduwiges", direccion: " C. Israel González S/N, Modelo, 83190 Hermosillo, Son.", hora: "12:30 pm", mapa: "" },
   recepcion: { lugar: "Jardín Lucrecia",  direccion: "Av. Lucrecia Ruiz de Ayón #49, Col. Villa de Cortés / San Luis Rey, Hermosillo, Son. (a un lado de Oky Doky).", hora: "9:00 pm", mapa: "" },
   itinerario: [                           // el orden del día: agrega, quita o cambia lo que quieras
-    { hora: "12:30",  ampm: "P.M.", titulo: "El sí",      texto: "La ceremonia en la Parroquia Santa Eduwiges. Donde uniremos nuestras vidas con amor y la bendición de Dios." },
+    { hora: "12:30",  ampm: "P.M.", titulo: "El sí",      texto: "En la ceremonia. Donde uniremos nuestras vidas con amor y la bendición de Dios." },
     { hora: "9:00",  ampm: "P.M.", titulo: "El sí del civil", texto: "Nos vemos en el Jardín Lucrecia para la firma definitiva." },
     { hora: "9:30",  ampm: "P.M.", titulo: "El brindis", texto: "Los esperamos para brindar juntos." },
     { hora: "10:00", ampm: "P.M.", titulo: "La cena",    texto: "Con buena comida y buena compañía." },
