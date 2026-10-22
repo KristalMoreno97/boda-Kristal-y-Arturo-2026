@@ -166,8 +166,8 @@ body:not(.unlocked){overflow:hidden;height:100svh}
 .card.open .seal{opacity:0;animation:none;transform:translate(-50%,-50%) scale(1.5);pointer-events:none}
 
 .hint{
-  position:absolute;z-index:3;bottom:max(3.5svh,20px);left:0;right:0;text-align:center;font-size:clamp(15px,3.8vw,19px);
-  letter-spacing:.3em;text-transform:uppercase;color:#f3e6c4;font-weight:600;text-shadow:0 1px 8px rgba(0,0,0,.7);
+  position:absolute;z-index:3;bottom:max(3.5svh,20px);left:0;right:0;text-align:center;font-size:clamp(25px,3.8vw,19px);
+  letter-spacing:.3em;text-transform:uppercase;color:#f3e6c4;font-weight:600;text-shadow:10 5px 15px rgba(0,0,0,.7);
   animation:blink 2.2s ease-in-out infinite;transition:opacity .5s;pointer-events:none
 }
 .hero.opened .hint{opacity:0;animation:none}
@@ -423,4 +423,156 @@ input[type=number].rsvp-input::-webkit-outer-spin-button{-webkit-appearance:none
   font-weight:600;
   line-height:1.3;
   text-align:center;
+}
+.cue{
+  top:auto;
+  bottom:max(3svh, calc(16px + env(safe-area-inset-bottom)));
+  color:#fffaf0;
+  font-weight:700;
+  font-size:clamp(15px,4vw,19px);
+  letter-spacing:.24em;
+  -webkit-text-stroke:2px #7a5a22;
+  paint-order:stroke fill;
+  text-shadow:
+    -1.5px -1.5px 0 #7a5a22, 1.5px -1.5px 0 #7a5a22,
+    -1.5px  1.5px 0 #7a5a22, 1.5px  1.5px 0 #7a5a22,
+    0 3px 10px rgba(40,22,6,.8);
+}
+/* El contenedor de la invitación debe tener position:relative */
+.cue{
+  position:absolute;
+  left:50%;
+  bottom:calc(22px + env(safe-area-inset-bottom));
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  z-index:5;
+}
+
+.cue em{
+  font-style:normal;
+  font-family:"Cormorant Garamond", "Playfair Display", serif; /* usa la misma serif de "diciembre" */
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:#fffaf0;
+  text-shadow:0 1px 8px rgba(30,16,4,.75); /* sombra suave, sin contorno */
+}
+
+/* Flecha dibujada con CSS: no se corta como el glifo ⌄ */
+.cue span{
+  width:12px;
+  height:12px;
+  border-right:2px solid #d8b45a;   /* dorado de la fecha */
+  border-bottom:2px solid #d8b45a;
+  transform:rotate(45deg);
+  filter:drop-shadow(0 1px 3px rgba(30,16,4,.7));
+  animation:cue-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes cue-bounce{
+  0%,100%{ transform:translateY(0) rotate(45deg); opacity:.6; }
+  50%{ transform:translateY(7px) rotate(45deg); opacity:1; }
+}
+.hints{
+  position:fixed;
+  left:0;
+  width:100vw;
+  bottom:0;
+  height:110px;
+  z-index:50;
+  pointer-events:none;
+  background:linear-gradient(to top, rgba(25,13,5,.65), rgba(25,13,5,0));
+}
+
+.pista{
+  position:absolute;
+  left:0; right:0;
+  bottom:calc(24px + env(safe-area-inset-bottom));
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  text-align:center;
+  font-family:"Cormorant Garamond","Playfair Display",serif;
+  font-size:clamp(15px, 4vw, 18px);
+  font-weight:700;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:#f3dfae;
+  text-shadow:0 1px 6px rgba(20,10,3,.9);
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+.chev{
+  width:12px; height:12px;
+  border-right:2px solid #d8b45a;
+  border-bottom:2px solid #d8b45a;
+  transform:rotate(45deg);
+  animation:cue-bounce 1.8s ease-in-out infinite;
+}
+@keyframes cue-bounce{
+  0%,100%{ transform:translateY(0) rotate(45deg); opacity:.6; }
+  50%{ transform:translateY(7px) rotate(45deg); opacity:1; }
+}
+
+/* Cerrada: solo "Toca para abrir" */
+body:not(.abierta) .pista-abrir{ opacity:1; }
+
+/* Abierta: solo "Desliza para ver más" */
+body.abierta .pista-deslizar{
+  opacity:1;
+  pointer-events:auto;
+  transition-delay:.8s;
+}
+
+/* Ya bajaron a los detalles: se esconde todo */
+body.bajo .hints{ opacity:0; transition:opacity .4s; }
+
+.hint{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  font-family:"Cormorant Garamond","Playfair Display",serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:#fffaf0;
+  text-shadow:0 1px 8px rgba(30,16,4,.75);
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+.chev{
+  width:12px; height:12px;
+  border-right:2px solid #d8b45a;
+  border-bottom:2px solid #d8b45a;
+  transform:rotate(45deg);
+  animation:cue-bounce 1.8s ease-in-out infinite;
+}
+@keyframes cue-bounce{
+  0%,100%{ transform:translateY(0) rotate(45deg); opacity:.6; }
+  50%{ transform:translateY(7px) rotate(45deg); opacity:1; }
+}
+
+/* Estado cerrado: solo "Toca para abrir" */
+body:not(.abierta) .hint-abrir{ opacity:1; }
+
+/* Estado abierto: solo "Desliza para ver más" (con un pequeño retraso) */
+body.abierta .hint-deslizar{
+  opacity:1;
+  pointer-events:auto;
+  transition-delay:.8s;
 }
