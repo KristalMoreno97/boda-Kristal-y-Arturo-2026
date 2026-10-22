@@ -81,6 +81,17 @@
       });
     } else { $('giftBtn').style.display = 'none'; }
   } else { $('giftBox').style.display = 'none'; }
+    if (g && Array.isArray(g.mesas) && g.mesas.length) {
+    g.mesas.forEach(m => {
+      const a = document.createElement('a');
+      a.className = 'btn';
+      a.textContent = m.nombre;
+      a.href = m.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      $('giftLinks').appendChild(a);
+    });
+  }
   $('dress').textContent = C.vestimenta;
   $('dressEllos').textContent = C.vestimentaEllos || ''; $('dressEllas').textContent = C.vestimentaEllas || '';
   const dc = document.querySelector('.dresscode');
@@ -99,6 +110,23 @@
     $('menuSnackT').textContent = m.snackTitulo || ''; $('menuSnack').textContent = m.snack || '';
     $('menuBebT').textContent = m.bebidasTitulo || ''; $('menuBeb').textContent = m.bebidas || '';
   } else { $('menuBox').style.display = 'none'; }
+
+    /* ---------- paleta de colores ---------- */
+  const pl = C.paleta;
+  if (pl && Array.isArray(pl.colores) && pl.colores.length) {
+    $('palEyebrow').textContent = pl.eyebrow || '';
+    $('palT1').textContent = pl.titulo1 || '';
+    $('palT2').textContent = pl.titulo2 || '';
+    $('palTexto').textContent = pl.texto || '';
+    $('palNota').textContent = pl.nota || '';
+    if (!pl.nota) $('palNota').style.display = 'none';
+    pl.colores.forEach(col => {
+      const it = document.createElement('div'); it.className = 'pal-item';
+      const dot = document.createElement('div'); dot.className = 'pal-dot'; dot.style.background = col.hex;
+      const nm = document.createElement('div'); nm.className = 'pal-name'; nm.textContent = col.nombre || '';
+      it.append(dot, nm); $('palGrid').appendChild(it);
+    });
+  } else { $('palBox').style.display = 'none'; }
 
   /* ---------- ramas de olivo ---------- */
   // hoja de olivo: larga y angosta, puntiaguda
